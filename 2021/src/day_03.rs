@@ -77,7 +77,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn day3() {
+    fn sample() {
         let input = "00100
 11110
 10110
