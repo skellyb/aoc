@@ -6,6 +6,7 @@ mod day_05;
 mod day_06;
 mod day_07;
 mod day_08;
+mod day_09;
 
 fn main() {
     let input = include_str!("../res/day-01.txt");
@@ -39,4 +40,8 @@ fn main() {
     let input = include_str!("../res/day-08.txt");
     let (d8p1, d8p2) = day_08::run(input);
     println!("Day 8: {} {}", d8p1, d8p2);
+
+    let input = include_str!("../res/day-09.txt");
+    let (d9p1, d9p2) = day_09::run(input);
+    println!("Day 9: {} {}", d9p1, d9p2);
 }
