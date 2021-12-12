@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 combine = "4.6.2"
+nannou = "0.18.0"
