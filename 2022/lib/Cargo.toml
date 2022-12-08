@@ -1,5 +1,12 @@
-[workspace]
+[package]
+name = "aoc"
+version = "0.1.0"
+edition = "2021"
 
-members = [
-    "day_05",
-]
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+deno_bindgen = "0.7.0"
+nom = "7.1.1"
+serde = { version = "1", features = ["derive"] }

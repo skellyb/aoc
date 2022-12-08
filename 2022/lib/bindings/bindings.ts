@@ -24,28 +24,37 @@ const url = new URL("../target/debug", import.meta.url)
 let uri = url.toString()
 if (!uri.endsWith("/")) uri += "/"
 
-let darwin: string | { aarch64: string; x86_64: string } = uri
-  + "libday_05.dylib"
+let darwin: string | { aarch64: string; x86_64: string } = uri + "libaoc.dylib"
 
 if (url.protocol !== "file:") {
   // Assume that remote assets follow naming scheme
   // for each macOS artifact.
   darwin = {
-    aarch64: uri + "libday_05_arm64.dylib",
-    x86_64: uri + "libday_05.dylib",
+    aarch64: uri + "libaoc_arm64.dylib",
+    x86_64: uri + "libaoc.dylib",
   }
 }
 
 const opts = {
-  name: "day_05",
+  name: "aoc",
   urls: {
     darwin,
-    windows: uri + "day_05.dll",
-    linux: uri + "libday_05.so",
+    windows: uri + "aoc.dll",
+    linux: uri + "libaoc.so",
   },
   policy: CachePolicy.NONE,
 }
 const _lib = await prepare(opts, {
+  disk_free: {
+    parameters: ["pointer", "usize"],
+    result: "i32",
+    nonblocking: false,
+  },
+  disk_usage: {
+    parameters: ["pointer", "usize"],
+    result: "i32",
+    nonblocking: false,
+  },
   find_top_crates: {
     parameters: ["pointer", "usize"],
     result: "pointer",
@@ -58,6 +67,20 @@ const _lib = await prepare(opts, {
   },
 })
 
+export function disk_free(a0: string) {
+  const a0_buf = encode(a0)
+  const a0_ptr = Deno.UnsafePointer.of(a0_buf)
+  let rawResult = _lib.symbols.disk_free(a0_ptr, a0_buf.byteLength)
+  const result = rawResult
+  return result
+}
+export function disk_usage(a0: string) {
+  const a0_buf = encode(a0)
+  const a0_ptr = Deno.UnsafePointer.of(a0_buf)
+  let rawResult = _lib.symbols.disk_usage(a0_ptr, a0_buf.byteLength)
+  const result = rawResult
+  return result
+}
 export function find_top_crates(a0: string) {
   const a0_buf = encode(a0)
   const a0_ptr = Deno.UnsafePointer.of(a0_buf)

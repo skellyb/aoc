@@ -1,0 +1,1 @@
+{"name":"aoc","littleEndian":true,"symbols":{"find_top_multi_crates":{"parameters":["str"],"result":"str","nonBlocking":false},"disk_usage":{"parameters":["str"],"result":"i32","nonBlocking":false},"disk_free":{"parameters":["str"],"result":"i32","nonBlocking":false},"find_top_crates":{"parameters":["str"],"result":"str","nonBlocking":false}},"typeDefs":{},"tsTypes":{}}
