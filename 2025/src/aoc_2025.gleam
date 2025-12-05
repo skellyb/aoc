@@ -1,6 +1,7 @@
 import day01
 import day02
 import day03
+import day04
 import gleam/int
 import gleam/io
 import gleam/string
@@ -41,6 +42,19 @@ pub fn main() -> Nil {
       let result = day03.run_pt1(input)
       io.println("Part 1: " <> int.to_string(result))
       let result2 = day03.run_pt2(input)
+      io.println("Part 2: " <> int.to_string(result2))
+    }
+    Error(_) -> {
+      io.println("error reading file")
+    }
+  }
+
+  case simplifile.read("inputs/day_04.txt") {
+    Ok(input) -> {
+      io.println("Day 4")
+      let result = day04.run_pt1(input)
+      io.println("Part 1: " <> int.to_string(result))
+      let result2 = day04.run_pt2(input)
       io.println("Part 2: " <> int.to_string(result2))
     }
     Error(_) -> {

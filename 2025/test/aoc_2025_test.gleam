@@ -1,6 +1,7 @@
 import day01
 import day02
 import day03
+import day04
 import gleam/string
 import gleeunit
 
@@ -68,4 +69,34 @@ pub fn day3_pt2_test() {
 234234234234278
 818181911112111"
   assert day03.run_pt2(input) == 3_121_910_778_619
+}
+
+pub fn day4_pt1_test() {
+  let input =
+    "..@@.@@@@.
+@@@.@.@.@@
+@@@@@.@.@@
+@.@@@@..@.
+@@.@@@@.@@
+.@@@@@@@.@
+.@.@.@.@@@
+@.@@@.@@@@
+.@@@@@@@@.
+@.@.@@@.@."
+  assert day04.run_pt1(input) == 13
+}
+
+pub fn day4_pt2_test() {
+  let input =
+    "..@@.@@@@.
+@@@.@.@.@@
+@@@@@.@.@@
+@.@@@@..@.
+@@.@@@@.@@
+.@@@@@@@.@
+.@.@.@.@@@
+@.@@@.@@@@
+.@@@@@@@@.
+@.@.@@@.@."
+  assert day04.run_pt2(input) == 43
 }
