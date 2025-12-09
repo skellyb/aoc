@@ -2,6 +2,9 @@ import day01
 import day02
 import day03
 import day04
+import day05
+import day06
+import day07
 import gleam/int
 import gleam/io
 import gleam/string
@@ -55,6 +58,45 @@ pub fn main() -> Nil {
       let result = day04.run_pt1(input)
       io.println("Part 1: " <> int.to_string(result))
       let result2 = day04.run_pt2(input)
+      io.println("Part 2: " <> int.to_string(result2))
+    }
+    Error(_) -> {
+      io.println("error reading file")
+    }
+  }
+
+  case simplifile.read("inputs/day_05.txt") {
+    Ok(input) -> {
+      io.println("Day 5")
+      let result = day05.run_pt1(input)
+      io.println("Part 1: " <> int.to_string(result))
+      let result2 = day05.run_pt2(input)
+      io.println("Part 2: " <> int.to_string(result2))
+    }
+    Error(_) -> {
+      io.println("error reading file")
+    }
+  }
+
+  case simplifile.read("inputs/day_06.txt") {
+    Ok(input) -> {
+      io.println("Day 6")
+      let result = day06.run_pt1(input)
+      io.println("Part 1: " <> int.to_string(result))
+      let result2 = day06.run_pt2(input)
+      io.println("Part 2: " <> int.to_string(result2))
+    }
+    Error(_) -> {
+      io.println("error reading file")
+    }
+  }
+
+  case simplifile.read("inputs/day_07.txt") {
+    Ok(input) -> {
+      io.println("Day 7")
+      let result = day07.run_pt1(input)
+      io.println("Part 1: " <> int.to_string(result))
+      let result2 = day07.run_pt2(input)
       io.println("Part 2: " <> int.to_string(result2))
     }
     Error(_) -> {
